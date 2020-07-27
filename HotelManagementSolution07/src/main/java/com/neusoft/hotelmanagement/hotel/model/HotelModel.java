@@ -1,15 +1,15 @@
-package com.neusoft.hotel.certainhotel.model;
+package com.neusoft.hotelmanagement.hotel.model;
 import java.io.Serializable;
 import org.apache.ibatis.type.Alias;
 import java.util.List;
 @Alias("Hotel")
 public class HotelModel {
-	private int hotelId=0;
+	private String hotelId=null;
 	private String hotelName=null;
-	public int getHotelId() {
+	public String getHotelId() {
 		return hotelId;
 	}
-	public void setHotelId(int hotelId) {
+	public void setHotelId(String hotelId) {
 		this.hotelId = hotelId;
 	}
 	public String getHotelName() {

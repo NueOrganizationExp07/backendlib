@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.neusoft.hotel.certainhotel.mapper.IHotelMapper">
+<mapper namespace="com.neusoft.hotelmanagement.hotel.mapper.IHotelMapper">
 
 	<resultMap id="HotelResultMap" type="Hotel" >
 		<id property="hotelId" column="HotelId"/>
@@ -10,31 +10,31 @@
 	</resultMap>
  
 	<insert id="insert" parameterType="Hotel" keyProperty="hotelId"   keyColumn="HotelId"  useGeneratedKeys="true">
-	insert into hotel_set (HotelId,HotelName) values (#{hotelId},#{hotelName})
+	insert into hotel (HotelId,HotelName) values (#{hotelId},#{hotelName})
  	</insert>
   
  	<update id="update">
- 	update  hotel_set set HotelName=#{hotelName} where HotelId=#{hotelId}
+ 	update  hotel set HotelName=#{hotelName} where HotelId=#{hotelId}
  	</update>
   
 	<delete id="delete">
- 	delete from hotel_set where HotelId=#{hotelId} 
+ 	delete from hotel where HotelId=#{hotelId} 
  	</delete>
   
  	<select id="selectByAll"  resultMap="HotelResultMap">
- 	select *  from hotel_set
+ 	select *  from hotel
  	</select>
  	
  	<select id="selectByAllWithPage" resultMap="HotelResultMap">
- 	select *  from hotel_set limit #{start},#{rows}
+ 	select *  from hotel limit #{start},#{rows}
  	</select>
  	
  	<select id="selectCountByAll" resultType="_int">
- 	select count(*)  from hotel_set
+ 	select count(*)  from hotel
  	</select>
  
  	<select id="selectByNo"  resultMap="HotelResultMap">
- 	select * from hotel_set where HotelId=#{hotelId}
+ 	select * from hotel where HotelId=#{hotelId}
  	</select>
   
 </mapper>

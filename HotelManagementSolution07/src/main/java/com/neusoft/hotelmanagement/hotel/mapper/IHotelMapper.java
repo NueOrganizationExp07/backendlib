@@ -1,10 +1,10 @@
-package com.neusoft.hotel.certainhotel.mapper;
+package com.neusoft.hotelmanagement.hotel.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
-import com.neusoft.hotel.certainhotel.model.HotelModel;
+import com.neusoft.hotelmanagement.hotel.model.HotelModel;
 
 
 public interface IHotelMapper {
@@ -22,7 +22,7 @@ public interface IHotelMapper {
 		public int selectCountByAll() throws Exception;
 		//根据酒店的no（PK）取得指定的部门对象
 		public HotelModel selectByNo(int no) throws Exception;
-		//取得指定的酒店，并取得其关联的员工集合
+		//取得指定的酒店，并取得其关联的房间集合
 		public HotelModel selectByNoWithEmployees(int no) throws Exception;
 		
 }

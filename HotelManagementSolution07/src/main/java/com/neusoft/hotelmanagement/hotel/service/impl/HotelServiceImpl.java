@@ -1,13 +1,13 @@
-package com.neusoft.hotel.certainhotel.service.impl;
+package com.neusoft.hotelmanagement.hotel.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.neusoft.hotel.certainhotel.mapper.IHotelMapper;
-import com.neusoft.hotel.certainhotel.model.HotelModel;
-import com.neusoft.hotel.certainhotel.service.IHotelService;
+import com.neusoft.hotelmanagement.hotel.mapper.IHotelMapper;
+import com.neusoft.hotelmanagement.hotel.model.HotelModel;
+import com.neusoft.hotelmanagement.hotel.service.IHotelService;
 
 
 @Service
@@ -16,7 +16,7 @@ public class HotelServiceImpl implements IHotelService{
 	@Autowired
 	private IHotelMapper hotelMapper=null;
 
-	public int add(HotelModel dm) throws Exception {
+	public String add(HotelModel dm) throws Exception {
 		hotelMapper.insert(dm);
 		return dm.getHotelId();
 	}

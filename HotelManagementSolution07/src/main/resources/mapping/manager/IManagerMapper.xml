@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotelmanagement.manager.mapper.IManagerMapper">
+
+	<resultMap id="ManagerResultMap" type="Manager" >
+		<id property="managerId" column="ManagerId"/>
+		<result property="managerName" column="ManagerName"/>
+		<result property="phoneNumber" column="PhoneNumber"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="Manager" keyProperty="managerId"   keyColumn="ManagerId"  useGeneratedKeys="true">
+	insert into manager (ManagerId,ManagerName,PhoneNumber) values (#{managerId},#{managerName},#{phoneNumber})
+ 	</insert>
+  
+ 	<update id="update">
+ 	update manager set ManagerName=#{managerName} where ManagerId=#{managerId}
+ 	</update>
+  
+	<delete id="delete">
+ 	delete from manager where ManagerId=#{managerId} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="ManagerResultMap">
+ 	select *  from manager
+ 	</select>
+ 	
+ 	<select id="selectByAllWithPage" resultMap="ManagerResultMap">
+ 	select *  from manager limit #{start},#{rows}
+ 	</select>
+ 	
+ 	<select id="selectCountByAll" resultType="_int">
+ 	select count(*)  from manager
+ 	</select>
+ 
+ 	<select id="selectByNo"  resultMap="ManagerResultMap">
+ 	select * from manager where ManagerId=#{managerId}
+ 	</select>
+  
+</mapper>

@@ -1,4 +1,4 @@
-package com.neusoft.hotel.restresult;
+package com.neusoft.hotelmanagement.restresult;
 import java.util.Date;
 import java.util.List;
 

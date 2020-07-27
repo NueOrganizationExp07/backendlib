@@ -1,12 +1,12 @@
-package com.neusoft.hotel.certainhotel.service;
+package com.neusoft.hotelmanagement.hotel.service;
 import java.util.List;
 
-import com.neusoft.hotel.certainhotel.model.HotelModel;
+import com.neusoft.hotelmanagement.hotel.model.HotelModel;
 
 
 public interface IHotelService {
 	//增加酒店
-	public int add(HotelModel dm) throws Exception;
+	public String add(HotelModel dm) throws Exception;
 	//修改酒店
 	public void modify(HotelModel dm) throws Exception;
 	//删除酒店
