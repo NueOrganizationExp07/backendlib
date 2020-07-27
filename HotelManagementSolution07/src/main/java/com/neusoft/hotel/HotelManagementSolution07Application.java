@@ -11,3 +11,4 @@ public class HotelManagementSolution07Application {
 	}
 
 }
+//注解
