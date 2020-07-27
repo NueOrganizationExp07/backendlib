@@ -20,7 +20,7 @@ public class HotelController {
 		
 	@PostMapping(value="/add")
 	public Result<String> add(HotelModel dm) throws Exception{
-		ds.add(dm);
+		ds.addHotel(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
 		result.setMessage("增加酒店成功!");
@@ -29,7 +29,7 @@ public class HotelController {
 	}
 	@PostMapping(value="/modify")
 	public Result<String> modify(HotelModel dm) throws Exception{
-		ds.modify(dm);
+		ds.modifyHotel(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
 		result.setMessage("修改酒店成功!");
@@ -37,7 +37,7 @@ public class HotelController {
 	}
 	@PostMapping(value="/delete")
 	public Result<String> delete(HotelModel dm) throws Exception{
-		ds.delete(dm);
+		ds.deleteHotel(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
 		result.setMessage("删除酒店成功!");
@@ -47,20 +47,20 @@ public class HotelController {
 	@GetMapping(value="/list/all/page")
 	public Result<HotelModel> getListByAllWitgPage(@RequestParam(required=false,defaultValue="10") int rows,@RequestParam(required=false,defaultValue="1") int page) throws Exception{
 		Result<HotelModel> result=new Result<HotelModel>();
-		result.setCount(ds.getCountByAll());
-		result.setPageCount(ds.getPageCountByAll(rows));
+		result.setCount(ds.getCountByAllHotel());
+		result.setPageCount(ds.getPageCountByAllHotel(rows));
 		result.setRows(rows);
 		result.setPage(page);
-		result.setList(ds.getListByAllWithPage(rows, page));
+		result.setList(ds.getListByAllWithPageHotel(rows, page));
 		
 		result.setStatus("OK");
 		result.setMessage("取得酒店列表分页方式成功!");
 		return result;
 	}
 	@GetMapping(value="/get")
-	public Result<HotelModel> getByNo(@RequestParam(required=true) int no) throws Exception{
+	public Result<HotelModel> getByNo(@RequestParam(required=true) String no) throws Exception{
 		Result<HotelModel> result=new Result<HotelModel>();
-		result.setResult(ds.getByNo(no));
+		result.setResult(ds.getByNoHotel(no));
 		
 		result.setStatus("OK");
 		result.setMessage("取得指定酒店对象成功!");

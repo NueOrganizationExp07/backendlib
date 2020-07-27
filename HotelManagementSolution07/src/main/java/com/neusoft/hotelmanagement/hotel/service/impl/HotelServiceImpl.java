@@ -16,43 +16,43 @@ public class HotelServiceImpl implements IHotelService{
 	@Autowired
 	private IHotelMapper hotelMapper=null;
 
-	public String add(HotelModel dm) throws Exception {
+	public String addHotel(HotelModel dm) throws Exception {
 		hotelMapper.insert(dm);
 		return dm.getHotelId();
 	}
 
 	
-	public void modify(HotelModel dm) throws Exception {
+	public void modifyHotel(HotelModel dm) throws Exception {
 		hotelMapper.update(dm);
 	}
 
 	
-	public void delete(HotelModel dm) throws Exception {
+	public void deleteHotel(HotelModel dm) throws Exception {
 		hotelMapper.delete(dm);
 	}
 
 	
-	public List<HotelModel> getListByAll() throws Exception {
+	public List<HotelModel> getListByAllHotel() throws Exception {
 		
 		return hotelMapper.selectByAll();
 	}
 
 
-	public List<HotelModel> getListByAllWithPage(int rows, int page) throws Exception {
+	public List<HotelModel> getListByAllWithPageHotel(int rows, int page) throws Exception {
 		
 		return hotelMapper.selectByAllWithPage(rows*(page-1), rows);
 	}
 
 
-	public int getCountByAll() throws Exception {
+	public int getCountByAllHotel() throws Exception {
 		
 		return hotelMapper.selectCountByAll();
 	}
 
 	
-	public int getPageCountByAll(int rows) throws Exception {
+	public int getPageCountByAllHotel(int rows) throws Exception {
 		
-		int count=this.getCountByAll();
+		int count=this.getCountByAllHotel();
 		int pageCount=0;
 		if(count%rows==0) {
 			pageCount=count/rows;
@@ -65,7 +65,7 @@ public class HotelServiceImpl implements IHotelService{
 	}
 
 
-	public HotelModel getByNo(int no) throws Exception {
+	public HotelModel getByNoHotel(String no) throws Exception {
 		
 		return hotelMapper.selectByNo(no);
 	}

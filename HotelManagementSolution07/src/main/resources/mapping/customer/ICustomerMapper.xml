@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotelmanagement.customer.mapper.ICustomerMapper">
+
+	<resultMap id="CustomerResultMap" type="Customer" >
+		<id property="customerId" column="CustomerId"/>
+		<result property="customerName" column="CustomerName"/>
+		<result property="roomInfo" column="RoomInfo"/>
+		<result property="checkInDate" column="CheckInDate"/>
+		<result property="checkOutDate" column="CheckOutDate"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="Customer" keyProperty="customerId"   keyColumn="CustomerId"  useGeneratedKeys="true">
+	insert into customer (CustomerId,CustomerName,RoomInfo,CheckInDate,CheckOutDate) values (#{customerId},#{customerName},#{roomInfo},#{checkInDate},#{checkOutDate})
+ 	</insert>
+  	
+  	
+ 	<update id="update">
+ 	update customer set CheckOutDate=#{checkOutDate} where CustomerId=#{customerId}
+ 	</update>
+  
+	<delete id="delete">
+ 	delete from customer where CustomerId=#{customerId} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="CustomerResultMap">
+ 	select *  from customer
+ 	</select>
+ 	
+ 	<select id="selectByAllWithPage" resultMap="CustomerResultMap">
+ 	select *  from customer limit #{start},#{rows}
+ 	</select>
+ 	
+ 	<select id="selectCountByAll" resultType="_int">
+ 	select count(*) from customer
+ 	</select>
+ 
+ 	<select id="selectByNo"  resultMap="CustomerResultMap">
+ 	select * from customer where CustomerId=#{customerId}
+ 	</select>
+  
+</mapper>

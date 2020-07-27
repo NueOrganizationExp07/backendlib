@@ -1,11 +1,12 @@
 package com.neusoft.hotelmanagement.manager.mapper;
 import java.util.List;
 
-
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.neusoft.hotelmanagement.manager.model.ManagerModel;
 
+@Mapper
 public interface IManagerMapper {
 	//增加负责人
 	public void insert(ManagerModel dm) throws Exception;
@@ -22,5 +23,5 @@ public interface IManagerMapper {
 	//根据负责人的no（PK）取得指定的部门对象
 	public ManagerModel selectByNo(int no) throws Exception;
 	//取得指定的负责人，并取得其关联的酒店集合
-	public ManagerModel selectByNoWithEmployees(int no) throws Exception;
+	//public ManagerModel selectByNoWithEmployees(int no) throws Exception;
 }

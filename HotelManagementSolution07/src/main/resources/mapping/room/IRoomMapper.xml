@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotelmanagement.room.mapper.IRoomMapper">
+
+	<resultMap id="RoomResultMap" type="Room" >
+		<id property="roomId" column="RoomId"/>
+		<result property="roomType" column="RoomType"/>
+		<result property="roomPrice" column="RoomPrice"/>
+		<result property="hotelInfo" column="HotelInfo"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="Room" keyProperty="roomId"   keyColumn="RoomId"  useGeneratedKeys="true">
+	insert into room (RoomId,RoomType,RoomPrice,HotelInfo) values (#{roomId},#{roomType},#{roomPrice},#{hotelInfo})
+ 	</insert>
+  	
+  	
+ 	<update id="update">
+ 	update room set RoomPrice=#{roomPrice} where RoomId=#{roomId}
+ 	</update>
+  
+	<delete id="delete">
+ 	delete from room where RoomId=#{roomId} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="RoomResultMap">
+ 	select *  from room
+ 	</select>
+ 	
+ 	<select id="selectByAllWithPage" resultMap="RoomResultMap">
+ 	select *  from room limit #{start},#{rows}
+ 	</select>
+ 	
+ 	<select id="selectCountByAll" resultType="_int">
+ 	select count(*) from room
+ 	</select>
+ 
+ 	<select id="selectByNo"  resultMap="RoomResultMap">
+ 	select * from room where RoomId=#{roomId}
+ 	</select>
+  
+</mapper>

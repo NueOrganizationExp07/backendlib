@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.neusoft.hotelmanagement.hotel.model.HotelModel;
 
-
+@Mapper
 public interface IHotelMapper {
 		//增加酒店
 		public void insert(HotelModel dm) throws Exception;
@@ -21,8 +21,8 @@ public interface IHotelMapper {
 		//取得酒店的个数
 		public int selectCountByAll() throws Exception;
 		//根据酒店的no（PK）取得指定的部门对象
-		public HotelModel selectByNo(int no) throws Exception;
+		public HotelModel selectByNo(String no) throws Exception;
 		//取得指定的酒店，并取得其关联的房间集合
-		public HotelModel selectByNoWithEmployees(int no) throws Exception;
+		//public HotelModel selectByNoWithEmployees(String no) throws Exception;
 		
 }

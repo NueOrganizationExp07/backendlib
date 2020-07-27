@@ -17,43 +17,43 @@ public class ManagerServiceImpl implements IManagerService {
 	@Autowired
 	private IManagerMapper managerMapper=null;
 
-	public int add(ManagerModel dm) throws Exception {
+	public int addManager(ManagerModel dm) throws Exception {
 		managerMapper.insert(dm);
 		return dm.getManagerId();
 	}
 
 	
-	public void modify(ManagerModel dm) throws Exception {
+	public void modifyManager(ManagerModel dm) throws Exception {
 		managerMapper.update(dm);
 	}
 
 	
-	public void delete(ManagerModel dm) throws Exception {
+	public void deleteManager(ManagerModel dm) throws Exception {
 		managerMapper.delete(dm);
 	}
 
 	
-	public List<ManagerModel> getListByAll() throws Exception {
+	public List<ManagerModel> getListByAllManager() throws Exception {
 		
 		return managerMapper.selectByAll();
 	}
 
 
-	public List<ManagerModel> getListByAllWithPage(int rows, int page) throws Exception {
+	public List<ManagerModel> getListByAllWithPageManager(int rows, int page) throws Exception {
 		
 		return managerMapper.selectByAllWithPage(rows*(page-1), rows);
 	}
 
 
-	public int getCountByAll() throws Exception {
+	public int getCountByAllManager() throws Exception {
 		
 		return managerMapper.selectCountByAll();
 	}
 
 	
-	public int getPageCountByAll(int rows) throws Exception {
+	public int getPageCountByAllManager(int rows) throws Exception {
 		
-		int count=this.getCountByAll();
+		int count=this.getCountByAllManager();
 		int pageCount=0;
 		if(count%rows==0) {
 			pageCount=count/rows;
@@ -66,7 +66,7 @@ public class ManagerServiceImpl implements IManagerService {
 	}
 
 
-	public ManagerModel getByNo(int no) throws Exception {
+	public ManagerModel getByNoManager(int no) throws Exception {
 		
 		return managerMapper.selectByNo(no);
 	}
