@@ -8,11 +8,11 @@
 		<id property="roomId" column="RoomId"/>
 		<result property="roomType" column="RoomType"/>
 		<result property="roomPrice" column="RoomPrice"/>
-		<result property="hotelInfo" column="HotelInfo"/>
+		<result property="hotelId" column="HotelId"/>
 	</resultMap>
  
 	<insert id="insert" parameterType="Room" keyProperty="roomId"   keyColumn="RoomId"  useGeneratedKeys="true">
-	insert into room (RoomId,RoomType,RoomPrice,HotelInfo) values (#{roomId},#{roomType},#{roomPrice},#{hotelInfo})
+	insert into room (RoomId,RoomType,RoomPrice,HotelId) values (#{roomId},#{roomType},#{roomPrice},#{hotelId})
  	</insert>
   	
   	

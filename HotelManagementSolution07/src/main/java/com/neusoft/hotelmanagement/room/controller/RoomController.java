@@ -1,10 +1,15 @@
 package com.neusoft.hotelmanagement.room.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 import com.neusoft.hotelmanagement.restresult.Result;
@@ -14,13 +19,14 @@ import com.neusoft.hotelmanagement.room.service.IRoomService;
 
 @RestController
 @RequestMapping(value="/room")
+@CrossOrigin(origins= {"*","null"})
 public class RoomController {
 	
 	@Autowired
 	private IRoomService ds=null;
 		
 	@PostMapping(value="/add")
-	public Result<String> add(RoomModel dm) throws Exception{
+	public Result<String> add(@RequestBody RoomModel dm) throws Exception{
 		ds.addRoom(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -29,7 +35,7 @@ public class RoomController {
 		
 	}
 	@PostMapping(value="/modify")
-	public Result<String> modify(RoomModel dm) throws Exception{
+	public Result<String> modify(@RequestBody RoomModel dm) throws Exception{
 		ds.modifyRoom(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -37,7 +43,7 @@ public class RoomController {
 		return result;
 	}
 	@PostMapping(value="/delete")
-	public Result<String> delete(RoomModel dm) throws Exception{
+	public Result<String> delete(@RequestBody RoomModel dm) throws Exception{
 		ds.deleteRoom(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -59,7 +65,7 @@ public class RoomController {
 		return result;
 	}
 	@GetMapping(value="/get")
-	public Result<RoomModel> getByNo(@RequestParam(required=true) int no) throws Exception{
+	public Result<RoomModel> getByNo(@RequestParam(required=true) String no) throws Exception{
 		Result<RoomModel> result=new Result<RoomModel>();
 		result.setResult(ds.getByNoRoom(no));
 		

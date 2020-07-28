@@ -6,6 +6,13 @@ import java.util.List;
 public class HotelModel {
 	private String hotelId=null;
 	private String hotelName=null;
+	private String managerId=null;
+	public String getManagerInfo() {
+		return managerId;
+	}
+	public void setManagerInfo(String managerInfo) {
+		this.managerId = managerInfo;
+	}
 	public String getHotelId() {
 		return hotelId;
 	}

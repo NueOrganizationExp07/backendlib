@@ -7,13 +7,13 @@
 	<resultMap id="CustomerResultMap" type="Customer" >
 		<id property="customerId" column="CustomerId"/>
 		<result property="customerName" column="CustomerName"/>
-		<result property="roomInfo" column="RoomInfo"/>
+		<result property="roomId" column="RoomId"/>
 		<result property="checkInDate" column="CheckInDate"/>
 		<result property="checkOutDate" column="CheckOutDate"/>
 	</resultMap>
  
 	<insert id="insert" parameterType="Customer" keyProperty="customerId"   keyColumn="CustomerId"  useGeneratedKeys="true">
-	insert into customer (CustomerId,CustomerName,RoomInfo,CheckInDate,CheckOutDate) values (#{customerId},#{customerName},#{roomInfo},#{checkInDate},#{checkOutDate})
+	insert into customer (CustomerId,CustomerName,RoomId,CheckInDate,CheckOutDate) values (#{customerId},#{customerName},#{roomId},#{checkInDate},#{checkOutDate})
  	</insert>
   	
   	

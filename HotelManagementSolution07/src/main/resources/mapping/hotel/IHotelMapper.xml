@@ -7,10 +7,11 @@
 	<resultMap id="HotelResultMap" type="Hotel" >
 		<id property="hotelId" column="HotelId"/>
 		<result property="hotelName" column="HotelName"/>
+		<result property="managerId" column="Managerd"/>
 	</resultMap>
  
 	<insert id="insert" parameterType="Hotel" keyProperty="hotelId"   keyColumn="HotelId"  useGeneratedKeys="true">
-	insert into hotel (HotelId,HotelName) values (#{hotelId},#{hotelName})
+	insert into hotel (HotelId,HotelName,ManagerId) values (#{hotelId},#{hotelName},#{managerId})
  	</insert>
   
  	<update id="update">

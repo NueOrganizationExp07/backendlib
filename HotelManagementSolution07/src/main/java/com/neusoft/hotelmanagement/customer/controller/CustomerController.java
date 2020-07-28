@@ -1,10 +1,15 @@
 package com.neusoft.hotelmanagement.customer.controller;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 import com.neusoft.hotelmanagement.customer.model.CustomerModel;
 import com.neusoft.hotelmanagement.customer.service.ICustomerService;
@@ -16,12 +21,13 @@ import com.neusoft.hotelmanagement.restresult.Result;
 
 @RestController
 @RequestMapping(value="/customer")
+@CrossOrigin(origins= {"*","null"})
 public class CustomerController {
 	@Autowired
 	private ICustomerService ds=null;
 		
 	@PostMapping(value="/add")
-	public Result<String> add(CustomerModel dm) throws Exception{
+	public Result<String> add(@RequestBody CustomerModel dm) throws Exception{
 		ds.addCustomer(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -30,7 +36,7 @@ public class CustomerController {
 		
 	}
 	@PostMapping(value="/modify")
-	public Result<String> modify(CustomerModel dm) throws Exception{
+	public Result<String> modify(@RequestBody CustomerModel dm) throws Exception{
 		ds.modifyCustomer(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");
@@ -38,7 +44,7 @@ public class CustomerController {
 		return result;
 	}
 	@PostMapping(value="/delete")
-	public Result<String> delete(CustomerModel dm) throws Exception{
+	public Result<String> delete(@RequestBody CustomerModel dm) throws Exception{
 		ds.deleteCustomer(dm);
 		Result<String> result=new Result<String>();
 		result.setStatus("OK");

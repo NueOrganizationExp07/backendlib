@@ -19,7 +19,7 @@ public class RoomServiceImpl implements IRoomService{
 	@Autowired
 	private IRoomMapper roomMapper=null;
 
-	public int addRoom(RoomModel dm) throws Exception {
+	public String addRoom(RoomModel dm) throws Exception {
 		roomMapper.insert(dm);
 		return dm.getRoomId();
 	}
@@ -68,7 +68,7 @@ public class RoomServiceImpl implements IRoomService{
 	}
 
 
-	public RoomModel getByNoRoom(int no) throws Exception {
+	public RoomModel getByNoRoom(String no) throws Exception {
 		
 		return roomMapper.selectByNo(no);
 	}

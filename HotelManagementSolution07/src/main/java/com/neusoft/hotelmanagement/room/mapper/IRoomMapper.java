@@ -22,7 +22,7 @@ public interface IRoomMapper {
 	//取得房间的个数
 	public int selectCountByAll() throws Exception;
 	//根据房间的no（PK）取得指定的部门对象
-	public RoomModel selectByNo(int no) throws Exception;
+	public RoomModel selectByNo(String no) throws Exception;
 	//取得指定的房间，并取得其关联的入住人员集合
 	//public RoomModel selectByNoWithEmployees(int no) throws Exception;
 	

@@ -5,16 +5,24 @@ import java.util.List;
 
 @Alias("Room")
 public class RoomModel {
-	private int RoomId=0;
+	private String RoomId=null;
 	private String RoomType=null;
 	private int RoomPrice=0;
-	private String HotelInfo=null;
-	public int getRoomId() {
+	private String HotelId=null;
+	public String getRoomId() {
 		return RoomId;
 	}
-	public void setRoomId(int roomId) {
+	public void setRoomId(String roomId) {
 		RoomId = roomId;
 	}
+
+	public String getHotelId() {
+		return HotelId;
+	}
+	public void setHotelId(String hotelId) {
+		HotelId = hotelId;
+	}
+	
 	public String getRoomType() {
 		return RoomType;
 	}
@@ -27,12 +35,7 @@ public class RoomModel {
 	public void setRoomPrice(int roomPrice) {
 		RoomPrice = roomPrice;
 	}
-	public String getHotelInfo() {
-		return HotelInfo;
-	}
-	public void setHotelInfo(String hotelInfo) {
-		HotelInfo = hotelInfo;
-	}
+	
 	
 	
 }
