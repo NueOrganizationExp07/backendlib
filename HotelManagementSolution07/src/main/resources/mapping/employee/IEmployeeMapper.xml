@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neusoft.hotelmanagement.employee.mapper.IEmployeeMapper">
+
+	<resultMap id="EmployeeResultMap" type="Employee" >
+		<id property="employeeId" column="EmployeeId"/>
+		<result property="employeeName" column="EmployeeName"/>
+		<result property="employeeAge" column="EmployeeAge"/>
+		<result property="employeeSalary" column="EmployeeSalary"/>
+		<result property="hotelId" column="HotelId"/>
+		<result property="department" column="Department"/>
+		<result property="phoneNumber" column="PhoneNumber"/>
+	</resultMap>
+ 
+	<insert id="insert" parameterType="Employee" keyProperty="employeeId"   keyColumn="EmployeeId"  useGeneratedKeys="true">
+	insert into employee (EmployeeId,EmployeeName,EmployeeAge,EmployeeSalary,HotelId,Department,PhoneNumber) values (#{employeeId},#{employeeName},#{employeeAge},#{employeeSalary},#{hotelId},#{department},#{phoneNumber})
+ 	</insert>
+  	
+  	
+ 	<update id="update">
+ 	update  employee set EmployeeName=#{employeeName},EmployeeAge=#{employeeAge},EmployeeSalary=#{employeeSalary},HotelId=#{hotelId},Department=#{department},PhoneNumber=#{phoneNumber} where EmployeeId=#{employeeId}
+ 	</update>
+  
+	<delete id="delete">
+ 	delete from  employee where EmployeeId=#{employeeId} 
+ 	</delete>
+  
+ 	<select id="selectByAll"  resultMap="EmployeeResultMap">
+ 	select *  from  employee
+ 	</select>
+ 	
+ 	<select id="selectByAllWithPage" resultMap="EmployeeResultMap">
+ 	select * from employee limit #{start},#{rows}
+ 	</select>
+ 	
+ 	<select id="selectCountByAll" resultType="_int">
+ 	select count(*) from employee
+ 	</select>
+ 
+ 	<select id="selectByNo"  resultMap="EmployeeResultMap">
+ 	select * from employee where EmployeeId=#{employeeId}
+ 	</select>
+  
+</mapper>
