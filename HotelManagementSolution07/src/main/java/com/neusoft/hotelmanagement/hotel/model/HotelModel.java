@@ -5,14 +5,15 @@ import java.util.List;
 @Alias("Hotel")
 public class HotelModel {
 	private String hotelId=null;
-	private String hotelName=null;
-	private String managerId=null;
-	public String getManagerInfo() {
+	public String getManagerId() {
 		return managerId;
 	}
-	public void setManagerInfo(String managerInfo) {
-		this.managerId = managerInfo;
+	public void setManagerId(String managerId) {
+		this.managerId = managerId;
 	}
+	private String hotelName=null;
+	private String managerId=null;
+
 	public String getHotelId() {
 		return hotelId;
 	}

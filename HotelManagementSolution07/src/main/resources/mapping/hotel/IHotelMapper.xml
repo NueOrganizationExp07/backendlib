@@ -7,7 +7,7 @@
 	<resultMap id="HotelResultMap" type="Hotel" >
 		<id property="hotelId" column="HotelId"/>
 		<result property="hotelName" column="HotelName"/>
-		<result property="managerId" column="Managerd"/>
+		<result property="managerId" column="ManagerId"/>
 	</resultMap>
  
 	<insert id="insert" parameterType="Hotel" keyProperty="hotelId"   keyColumn="HotelId"  useGeneratedKeys="true">
@@ -15,7 +15,7 @@
  	</insert>
   
  	<update id="update">
- 	update  hotel set HotelName=#{hotelName} where HotelId=#{hotelId}
+ 	update  hotel set HotelName=#{hotelName},ManagerId=#{managerId} where HotelId=#{hotelId}
  	</update>
   
 	<delete id="delete">

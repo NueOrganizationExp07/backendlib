@@ -18,7 +18,7 @@
   	
   	
  	<update id="update">
- 	update customer set CheckOutDate=#{checkOutDate} where CustomerId=#{customerId}
+ 	update customer set CustomerName=#{customerName},RoomId=#{roomId},CheckInDate=#{checkInDate},CheckOutDate=#{checkOutDate} where CustomerId=#{customerId}
  	</update>
   
 	<delete id="delete">
